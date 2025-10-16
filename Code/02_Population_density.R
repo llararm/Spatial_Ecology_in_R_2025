@@ -42,47 +42,60 @@ beidens <- density(bei) #density of organisms
 plot(beidens)
 points(bei, cex=.2)
 
+# density map
+dmap <- density(bei)
+plot(dmap)
+points(bei)
+
 ########## DAY 2
 # Plotting the maps one beside the other
-par(mfrow=c(1,2))
-plot(elevation2)
-plot(densitymap)
+par(mfrow=c(1,2)) # 1 porque é uma 1 linha (uma do lado da outra) e 2 pelo numero de colunas
+plot(dmap)
+plot(el)
 
 # Exercise: make a multiframe with maps one on top of the other
-par(mfrow=c(2,1))
-plot(elevation2)
-plot(densitymap)
+par(mfrow=c(2,1)) # 2 porque é uma 2 linhas (um em cima da outra) e 1 pelo numero de colunas
+plot(dmap)
+plot(el)
 
 # one frined to clear graphs
-dev.off()
+dev.off() # function to close the graph
 plot(elevation2)
 
 # Changin colors to maps
-cl <- colorRampPalette(c("red", "orange", "yellow"))(3)
-plot(densitymap, col=cl)
+colorRampPalette # evitar sempre a usar o uso de escala rainbow por acessibilidade
+cl <- colorRampPalette(c("black", "red", "yellow"))
+plot(dmap, col=cl)
 
-cl <- colorRampPalette(c("red", "orange", "yellow"))(10)
-plot(densitymap, col=cl)
+cl <- colorRampPalette(c("black", "red", "yellow"))(10) # o numero de foraindica o numero de cores intermediarias entre as escolhidas
+plot(dmap, col=cl)
 
-cl <- colorRampPalette(c("red", "orange", "yellow"))(100)
-plot(densitymap, col=cl)
+cln <- colorRampPalette(c("#27408B", "#551A8B", "#473C8B", "#2E8B57"))
+plot(dmap, col=cl)
 
-# search your browser for "colors in R" 
-# http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf
+# search your browser for "colors in RR"
+# http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf # or https://r-charts.com/colors/
 
 # Exercise: change the color ramp palette using different colors
 
-cln <- colorRampPalette(c("purple1", "orchid2", "palegreen3", "paleturquoise"))(100)
-plot(densitymap, col=cln)
+cln <- colorRampPalette(c("#27408B", "#551A8B", "#473C8B", "#2E8B57"))
+plot(dmap, col=cln)
 
-# Exrcise: build a multiframe and plot the densitymap with two different color ramp palettes one beside the other
+# Exercise: build a multiframe and plot the densitymap with two different color ramp palettes one beside the other
 
 par(mfrow=c(1,2))
 
-cln <- colorRampPalette(c("purple1", "orchid2", "palegreen3", "paleturquoise"))(100)
-plot(densitymap, col=cln)
+cln <- colorRampPalette(c("#27408B", "#551A8B", "#473C8B", "#2E8B57"))(100)
+plot(dmap, col=cln)
 
-clg <- colorRampPalette(c("green4", "green3", "green2", "green1", "green"))(100)
-plot(densitymap, col=clg)
+cl <- colorRampPalette(c("black", "red", "yellow"))(10)
+plot(dmap, col=cl)
 
 dev.off()
+
+# Exercise: make a final graph with the points, the elevations, the dmap with two different colors schemes
+par(mfrow=c(2,2))
+plot(bei)
+plot(el)
+plot(dmap, col=cl)
+plot(dmap, col=cln)
