@@ -3,7 +3,7 @@
 install.packages("sdm") # sdm --> species distribution modeling
 install.packages("terra")
 
-library(sdm)
+library(sdm) 
 library(terra)
 
 # system.file -> procura um arquivo no meus arquivos ou pacotes
