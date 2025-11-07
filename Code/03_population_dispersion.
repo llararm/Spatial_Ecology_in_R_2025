@@ -108,7 +108,6 @@ cova <- c(elevmap, tempmap, precmap, vegemap)
 plot(cova)
 plot(cova, col=inferno(100))
 
-plot(cova$temperature, col_mako(100))
 
 
 
