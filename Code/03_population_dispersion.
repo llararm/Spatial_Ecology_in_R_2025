@@ -39,11 +39,12 @@ par(mfrow=c(2,1))
 plot(pres)
 plot(abse)
 
-# Excercise: plot the presences in blue together with absences in red
+# Exercise: plot the presences in blue together with absences in red
 dev.off()
 plot(pres, col="blue", pch=19, cex=2)
 points(abse, col="red", pch=19, cex=2)
 
+######
 # Covariates
 elev <- system.file("external/elevation.asc", package="sdm")
 # [1] "/usr/local/lib/R/site-library/sdm/external/elevation.asc"
@@ -54,5 +55,62 @@ elevmap <- rast(elev)
 cl <- colorRampPalette(c("green","hotpink","mediumpurple"))(100)
 plot(elevmap, col=cl)
 
-# Exercise: plot the presnces together with elevation map
-points(pres, pch=19)
+install.packages("viridis") # acessivel para pessoas daltonicas
+library(viridis)
+
+plot(elevmap, col=magma(100)) # ver quais são as esclas de cores e escolher uma
+
+temp <- system.file("external/temperature.asc", package="sdm")
+temp
+
+# Exercise: import temperature and plot presences vs. temperature
+tempmap <- rast(temp)
+plot(tempmap)
+plot(tempmap, col=mako(100))
+
+# Exercise: plot elevation and temperature with presences one beside the other
+par(mfrow=c(1,2))
+plot(elevmap, col=mako(100))
+points(rana)
+plot(tempmap, col=mako(100))
+points(rana)
+
+# on top of each other
+par(mfrow=c(2,1))
+plot(elevmap, col=mako(100))
+points(rana)
+plot(tempmap, col=mako(100))
+points(rana)
+
+# precipitation
+prec <- system.file("external/precipitation.asc", package="sdm")
+
+precmap <- rast(prec)
+plot(precmap)
+points(rana)
+
+# vegetation
+vege <- system.file("external/vegetation.asc", package="sdm")
+vegemap <- rast(vege)
+plot(vegemap)
+points(rana)
+
+
+# Exercise: plot all the maps variables in a multiframe
+par(mfrow=c(2,2)) # já que são 4 maps
+plot(elevmap)
+plot(tempmap)
+plot(precmap)
+plot(vegemap)
+
+# stuck all the files together
+cova <- c(elevmap, tempmap, precmap, vegemap)
+plot(cova)
+plot(cova, col=inferno(100))
+
+plot(cova$temperature, col_mako(100))
+
+
+
+
+
