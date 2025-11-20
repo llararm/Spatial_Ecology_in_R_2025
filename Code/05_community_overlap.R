@@ -15,16 +15,17 @@ summary(kerinci)
 
 circtime <- kerinci$Time * 2 * pi
 
-kerinci$circtime  <- kerinci$Time * 2 * pi
+kerinci$Timecirc  <- kerinci$Time * 2 * pi
 head(kerinci)
 
 # tiger data
-tiger <- kerinci[kerinci$Sps == "tiger",]
-densityPlot
+tiger <- kerinci[kerinci$Sps == "tiger",]  #se quiser colocar algo que não seja tiger usa !=
+densityPlot(tiger$Timecirc)
 
 tigertime <- tiger$Timecirc
-
 densityPlot(tigertime)
+
+
 
 # macaque
 # Exercise: select the data for the macaque and assign them to a new ojbect 
@@ -44,3 +45,19 @@ summary(macaque)
 
 nomacaque <- kerinci[kerinci$Sps!="macaque",]
 summary(nomacaque)
+
+# Get the unique species names
+species_list <- unique(kerinci$Sps)
+
+# Set up the plotting area with a grid (adjust n and m based on the number of species)
+par(mfrow = c(3, 3))  # Example: 3 rows and 3 columns (adjust as needed)
+
+# Loop through each species and create density plots
+for (species in species_list) {
+  # Subset data for the current species
+  species_data <- kerinci[kerinci$Sps == species, ]
+  
+  # Create a density plot for the 'circ' variable of the current species
+  plot(density(species_data$Timecirc), 
+       main = paste("Density Plot of Circumference for", species), 
+       xlab = "Circumference")
