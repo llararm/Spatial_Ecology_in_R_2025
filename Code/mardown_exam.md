@@ -1,7 +1,7 @@
 ---
-title: "Spatial Distribution and Density of a Species in Brazil"
-author: "Your Name"
-date: "`r Sys.Date()`"
+title: "Spatial Distribution and Density of _Chrysocyon brachyurus_ in Brazil"
+author: "Lara Ribeiro Maia"
+date: "`21.01.2026`"
 output: html_document
 ---
 
