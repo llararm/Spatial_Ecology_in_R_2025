@@ -7,26 +7,23 @@ output: html_document
 
 # Introduction
 
-Understanding the spatial distribution of species is a fundamental topic in ecology, as it provides insights into population density, dispersal patterns, and potential environmental preferences.  
-Spatial analyses based on occurrence records are widely used in biodiversity monitoring and conservation planning.
+Understanding the spatial distribution of species is a fundamental topic in ecology, as it provides information on population density, dispersal patterns, and potential environmental preferences, allowing us to understand how a species relates to its environment.
 
-The objective of this project is to analyze the spatial distribution and density of a species using occurrence data obtained from the Global Biodiversity Information Facility (GBIF).  
+Spatial analyses based on occurrence records use geographic information to map where species are found, enabling the identification of distribution patterns and areas of concentration. These analyses are widely applied in biodiversity monitoring and conservation planning, as they help identify ecologically important regions and support decision-making processes.
+
+The objective of this project is to analyze the spatial distribution and density of the species _Chrysocyon brachyurus_, commonly known as the Maned Wolf/Lobo-Guará, a canid specie from South America, using occurrence data obtained from the Global Biodiversity Information System (GBIF).
+
+<img width="1300" height="768" alt="image" src="https://github.com/user-attachments/assets/b546325e-bad3-4f11-bd38-003952daeca2" />
+
 The analysis focuses on visualizing occurrence points across Brazil and estimating spatial density patterns.
 
-Compreender a distribuição espacial das espécies é um tema fundamental em ecologia, pois fornece informações sobre densidade populacional, padrões de dispersão e potenciais preferências ambientais, na qual podemos entender como a espécie se relaciona com o ambiente.
-
-Análises espaciais baseadas em registros de ocorrência utilizam informações geográficas para mapear onde as espécies são encontradas, permitindo a identificação de padrões de distribuição e áreas de concentração. Essas análises são amplamente aplicadas no monitoramento da biodiversidade e no planejamento da conservação, pois ajudam a identificar regiões ecologicamente importantes e apoiam os processos de tomada de decisão.
-
-O objetivo deste projeto é analisar a distribuição espacial e a densidade da espécie _Chrysocyon brachyurus_, nome popular: Lobo-Guará, uma espécie de canídeo da América do Sul, utilizando dados de ocorrência obtidos do Sistema Global de Informação sobre Biodiversidade (GBIF).
-
-A análise concentra-se na visualização de pontos de ocorrência em todo o Brasil e na estimativa de padrões de densidade espacial.
 ---
 
 # Data and Methods
 
 ## Data source
 
-Occurrence data were obtained from the **GBIF database** using the taxon key `2434450`.  
+Occurrence data were obtained from the GBIF database using the taxon key `2434450`.  
 Only records with valid geographic coordinates were included in the analysis.
 
 ## R packages
@@ -131,17 +128,17 @@ p1 + p2
 
 # Discussion
 
-The occurrence map shows that the species is not evenly distributed across Brazil, with records concentrated in specific regions.
-This pattern suggests spatial aggregation, which may reflect environmental suitability, sampling effort, or ecological constraints.
+The occurrence map shows that the species is not uniformly distributed across Brazil, with records concentrated in specific regions, mainly in the Cerrado biome. Points outside the map indicate the species' location outside the country in other South American countries, such as Argentina.
 
-The density map complements this interpretation by highlighting areas with higher concentrations of records, allowing a clearer visualization of spatial intensity.
-Presenting the density map separately avoids visual distortions caused by irregular geographic boundaries.
+This pattern reveals the species' characteristic of being fully adapted to the characteristics of the open environments of the South American savannas.
 
-Colorblind-friendly palettes (viridis and Okabe–Ito colors) were used to ensure accessibility and accurate interpretation of the visualizations.
+The density map complements this interpretation, highlighting areas with higher concentrations of records, allowing for a clearer visualization of spatial intensity.
+
+Colorblind-friendly color palettes were used to ensure accessibility and accurate interpretation of the visualizations.
 
 # Conclusion
 
 This project demonstrates how GBIF occurrence data can be used to analyze spatial distribution and density patterns in ecology.
-The combination of point occurrence maps and density estimation provides a clear and interpretable overview of species distribution, using reproducible and accessible visualization methods in R.
+By combining point occurrence maps with density estimation, it is possible to clearly visualize species distribution patterns using reproducible and accessible visualization approaches in R.
 
-Such approaches are valuable tools for ecological research, biodiversity monitoring, and conservation planning.
+These approaches are valuable tools for ecological research, biodiversity monitoring, and conservation planning.
