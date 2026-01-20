@@ -43,16 +43,10 @@ library(sf)           # Spatial vector data
 ## Data Collection and preprocessing
 
 ```
-taxonKey <- 2434450
+;;taxonKey <- 2434450
 
-dados_gbif <- occ_search(
-  taxonKey = taxonKey,
-  limit = 500,
-  hasCoordinate = TRUE
-)
-
+dados_gbif <- occ_search(taxonKey = taxonKey, limit = 500, hasCoordinate = TRUE)
 df <- dados_gbif$data[, c("decimalLongitude", "decimalLatitude", "country", "year")]
-
 df <- df[!is.na(df$decimalLongitude) & !is.na(df$decimalLatitude), ]
 df <- df[!duplicated(df[, c("decimalLongitude", "decimalLatitude")]), ]
 ```
